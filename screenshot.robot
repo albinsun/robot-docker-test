@@ -34,4 +34,4 @@ search by i am feeling lucky
     Click Element    name=btnI
 
 capture page screenshot 
-    Selenium2Library.Capture Page Screenshot    ${SCREENSHOT DST PATH}
+    Selenium2Library.Capture Page Screenshot
