@@ -2,7 +2,8 @@
 ${BROWSER NAME}    firefox
 ${SEARCH ENGINE URL}    https://www.google.com
 ${SEARCH KEYWORD}    ruckus wireless
-${SCREENSHOT DST PATH}    ./haha.png
+${SCREENSHOT DST PATH}    ./homepage.png
+
 
 *** Settings ***
 Library    Selenium2Library
@@ -34,4 +35,4 @@ search by i am feeling lucky
     Click Element    name=btnI
 
 capture page screenshot 
-    Selenium2Library.Capture Page Screenshot
+    Selenium2Library.Capture Page Screenshot    ${SCREENSHOT DST PATH}
