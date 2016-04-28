@@ -24,7 +24,7 @@ Open Test Browser
     Open Browser    ${SEARCH ENGINE URL}    ${BROWSER NAME}
 
 Close Test Browser
-    Close all browsers
+    Close All Browsers
 
 a valid google search homepage
     Title Should Be    Google
