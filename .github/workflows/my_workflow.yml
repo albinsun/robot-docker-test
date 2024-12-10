@@ -4,12 +4,12 @@ on: push
 
 jobs:
   diff1:
-    if: github.ref == refs/heads/try_workflow
+    if: github.ref == 'refs/heads/try_workflow'
     runs-on: ubuntu-latest
     steps:
       - run: echo 'Deploying with branch ${{ github.ref }}'
   diff2:
-    if: $GITHUB_REF == refs/heads/try_workflow
+    if: ${{ github.ref == 'refs/heads/try_workflow' }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "Deploying with branch $GITHUB_REF"
