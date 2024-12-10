@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_CTX: $${{ toJson(github) }}
-      JOB_CTX: $${{ toJson(job) }}
       STEPS_CTX: $${{ toJson(steps) }}
       RUNNER_CTX: $${{ toJson(runner) }}
       STRATEGY_CTX: $${{ toJson(strategy) }}
@@ -16,6 +15,8 @@ jobs:
       - name: github
         run: echo "$GITHUB_CTX"
       - name: job
+        env:
+          JOB_CTX: $${{ toJson(job) }}
         run: echo "$JOB_CTX"
       - name: steps
         run: echo "$STEPS_CTX"
