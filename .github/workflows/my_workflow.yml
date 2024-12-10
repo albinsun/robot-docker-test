@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: print_env
-        runs: echo ${{ env }}
+        run: echo ${{ env }}
       - id: print_vars
-        runs: echo ${{ vars }}
+        run: echo ${{ vars }}
       - id: print_github
-        runs: echo ${{ github }}
+        run: echo ${{ github }}
       - id: print_runner
-        runs: echo ${{ runner }}
+        run: echo ${{ runner }}
