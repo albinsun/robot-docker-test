@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: print_env
-        run: echo ${{ env }}
+        run: echo ${{ toJson(env) }}
       - id: print_vars
-        run: echo ${{ vars }}
+        run: echo ${{ toJson(vars) }}
       - id: print_github
-        run: echo ${{ github }}
+        run: echo ${{ toJson(github) }}
       - id: print_runner
-        run: echo ${{ runner }}
+        run: echo ${{ toJson(runner) }}
