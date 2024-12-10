@@ -3,7 +3,17 @@ name: Test Workflow
 on: push
 
 jobs:
-  print_job:
+  diff1:
+    if: github.ref == refs/heads/try_workflow
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Deploying with branch ${{ github.ref }}'
+  diff2:
+    if: ${{ $GITHUB_REF == refs/heads/try_workflow }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying with branch $GITHUB_REF"
+  print_all:
     runs-on: ubuntu-latest
     steps:
       - name: Print env
