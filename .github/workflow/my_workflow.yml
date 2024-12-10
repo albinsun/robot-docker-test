@@ -1,0 +1,16 @@
+name: Test Workflow
+
+on: push
+
+jobs:
+  print_job:
+    runs-on: ubuntu-latest
+    steps:
+      - id: print_env
+        runs: echo ${{ env }}
+      - id: print_vars
+        runs: echo ${{ vars }}
+      - id: print_github
+        runs: echo ${{ github }}
+      - id: print_runner
+        runs: echo ${{ runner }}
