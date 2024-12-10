@@ -3,24 +3,25 @@ name: Test Workflow
 on: push
 
 jobs:
-  diff1:
-    if: github.ref == 'refs/heads/try_workflow'
+  dump_contexts:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_CTX: $${{ toJson(github) }}
+      JOB_CTX: $${{ toJson(job) }}
+      STEPS_CTX: $${{ toJson(steps) }}
+      RUNNER_CTX: $${{ toJson(runner) }}
+      STRATEGY_CTX: $${{ toJson(strategy) }}
+      MATRIX_CTX: $${{ toJson(matrix) }}
     steps:
-      - run: echo 'Deploying with branch ${{ github.ref }}'
-  diff2:
-    if: ${{ github.ref == 'refs/heads/try_workflow' }}
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Deploying with branch $GITHUB_REF"
-  print_all:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print env
-        run: echo '${{ toJson(env) }}'
-      - name: Print vars
-        run: echo '${{ toJson(vars) }}'
-      - name: Print github
-        run: echo '${{ toJson(github) }}'
-      - name: Print runner
-        run: echo '${{ toJson(runner) }}'
+      - name: github
+        run: echo "$GITHUB_CTX"
+      - name: job
+        run: echo "$JOB_CTX"
+      - name: steps
+        run: echo "$STEPS_CTX"
+      - name: runner
+        run: echo "$RUNNER_CTX"
+      - name: strategy
+        run: echo "$STRATEGY_CTX"
+      - name: matrix
+        run: echo "$MATRIX_CTX"
